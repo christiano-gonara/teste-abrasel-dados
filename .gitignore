@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# dados brutos e intermediários: grandes e reproduzíveis pelos scripts do repositório
+dados/brutos/
+dados/intermediario/
+
+# a base tratada completa passa de 100 MB, limite de arquivo do GitHub; ela vai como
+# anexo de release. No repositório fica só a amostra em dados/amostra/.
+dados/tratados/base_afl.parquet
+dados/tratados/base_afl.csv

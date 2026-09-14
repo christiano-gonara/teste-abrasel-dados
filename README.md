@@ -3,6 +3,11 @@
 Análise dos dados abertos de CNPJ da Receita Federal, filtrada para o setor de bares,
 restaurantes e alimentação fora do lar (AFL), com os seis CNAEs do enunciado.
 
+**Resultado principal:** o notebook [`notebooks/analise_abrasel.ipynb`](notebooks/analise_abrasel.ipynb)
+tem a análise completa, com texto e gráficos. A base tratada completa (396 MB) está em
+[releases](https://github.com/christiano-gonara/teste-abrasel-dados/releases/latest); no repositório
+fica uma amostra de 20 mil linhas, porque o GitHub limita arquivo a 100 MB.
+
 ## Respostas
 
 | Pergunta | Resposta |

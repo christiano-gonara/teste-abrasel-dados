@@ -1,24 +1,8 @@
 """
-01_ingestao.py — traduz os arquivos brutos da Receita Federal para Parquet.
+01_ingestao.py — Converte os arquivos brutos da Receita Federal para Parquet.
 
-Por que este script existe
---------------------------
-Os arquivos do CNPJ não são CSV "amigável":
-  * vêm SEM cabeçalho, então os nomes das colunas só existem na documentação oficial;
-  * separador é ';' e TODOS os campos vêm entre aspas duplas;
-  * alguns campos têm ';' DENTRO das aspas (ex.: "APT 1.404;BLOCO A"), então separar a
-    linha por ';' na mão quebra ~1,9% dos registros;
-  * alguns campos têm aspas escapadas com aspas dobradas (ex.: loja chamada "A");
-  * o encoding é Latin-1 (ISO-8859-1), não UTF-8 — e aparece 1 byte 0x8F, que nem o
-    Latin-1 estrito aceita (o DuckDB recusa o arquivo por causa disso).
-
-Estratégia: baixar todos os arquivos 'K*.ESTABELE' / 'K*.EMPRECSV' / Simples / domínios,
-converter Latin-1 -> UTF-8 uma vez e gravar Parquet. A conversão é byte a byte, então é
-reversível; o que ela revela (bytes de controle) é contado e reportado, não escondido.
-
-Nenhuma regra de negócio acontece aqui: isto é só "traduzir o arquivo para uma tabela de
-verdade", com todo campo lido como texto (os códigos têm zero à esquerda e as datas são
-texto YYYYMMDD — converter cedo demais destruiria informação).
+Lê os CSVs brutos em Latin-1, trata caracteres especiais e aspas escapadas,
+e salva em Parquet para leitura rápida e sem estouro de memória.
 """
 
 from pathlib import Path

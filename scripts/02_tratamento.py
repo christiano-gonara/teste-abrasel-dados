@@ -1,30 +1,9 @@
 """
-02_tratamento.py — limpa, filtra o setor e unifica as tabelas.
+02_tratamento.py — Limpa, filtra e unifica a base do setor AFL.
 
-Entrada : dados/intermediario/*.parquet  (saída do 01_ingestao.py)
-Saída   : dados/tratados/base_afl.parquet / .csv
-          dados/tratados/aberturas_por_ano.csv
-
-Duas saídas, por dois motivos diferentes:
-
-  base_afl            a base unificada, feita com a PARTE 4 de Estabelecimentos e Empresas,
-                      que é o que o teste pede, já filtrada para o setor de alimentação e
-                      enriquecida com Empresas, Simples e as tabelas de domínio.
-
-  aberturas_por_ano   a série de aberturas ao longo do tempo. Esta usa TODAS as partes
-                      disponíveis, porque as 10 partes são fatias temporais: a parte 4 sozinha
-                      concentra aberturas até 2020 e quase nada entre 2021 e 2025, então não
-                      dá para responder "como evoluiu a abertura" só com ela.
-
-O que este script faz, em ordem:
-  1. padroniza os campos de texto e monta o CNPJ completo de 14 dígitos;
-  2. converte as datas de texto YYYYMMDD para data de verdade, contando as inválidas;
-  3. filtra o setor (CNAE principal entre os 6 códigos de alimentação fora do lar);
-  4. traduz os códigos com as tabelas de domínio (CNAE, município, motivo, natureza);
-  5. junta com Empresas (razão social, porte, natureza jurídica, capital social);
-  6. junta com a base do Simples para descobrir quem é MEI;
-  7. monta a série temporal com todas as partes, tirando duplicados entre elas;
-  8. grava as saídas e imprime o resumo do que aconteceu.
+Gera:
+- base_afl.parquet e base_afl.csv (dados consolidados do setor de alimentação)
+- aberturas_por_ano.csv e aberturas_pais_por_ano.csv (séries históricas)
 """
 
 from pathlib import Path

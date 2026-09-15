@@ -3,37 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Abrasel Analytics — Setor de Alimentação Fora do Lar</title>
-  <!-- Google Fonts: Plus Jakarta Sans -->
+  <title>Abrasel Data Overview — Setor de Alimentação Fora do Lar</title>
+
+  <!-- Fontes acolhedoras e modernas: Plus Jakarta Sans & Outfit -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <!-- Chart.js for smooth modern rendering -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   
+  <!-- Chart.js para renderização nítida -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
   <style>
     :root {
-      --bg: #F4F6F9;
-      --card-bg: #FFFFFF;
-      --text-main: #111827;
-      --text-muted: #6B7280;
-      --text-sub: #9CA3AF;
+      /* Paleta quente, orgânica e aconchegante (Estilo Freud / App de Bem-Estar) */
+      --bg: #F5EFEB;             /* Bege acolhedor de fundo */
+      --bg-warm-card: #FAF6F0;    /* Creme suave para contraste interno */
+      --card-bg: #FFFFFF;         /* Branco puro para os cards respirarem */
       
-      --primary: #FF5A36;
-      --primary-soft: #FFF1EE;
-      --secondary: #10B981;
-      --secondary-soft: #ECFDF5;
-      --accent: #6366F1;
-      --accent-soft: #EEF2FF;
-      --warning: #F59E0B;
-      --warning-soft: #FEF3C7;
-      --blue: #0284C7;
-      --blue-soft: #E0F2FE;
+      --text-title: #2D231E;      /* Marrom café bem escuro / alta legibilidade */
+      --text-body: #5C4D44;       /* Marrom médio agradável */
+      --text-muted: #8C7A70;      /* Marrom claro / cinza terroso suave */
 
-      --radius-lg: 24px;
-      --radius-md: 16px;
+      /* Acentos naturais / terracota / oliva / tangerina */
+      --terracota: #E0533C;
+      --terracota-soft: #FDEEEB;
+      --oliva: #4E8752;
+      --oliva-soft: #EBF4EC;
+      --tangerina: #F08C28;
+      --tangerina-soft: #FDF3E7;
+      --mostarda: #DCA134;
+      --mostarda-soft: #FCF5E8;
+      --ameixa: #8B5E83;
+      --ameixa-soft: #F5EEF4;
+      --azul-petroleo: #3B728C;
+      --azul-soft: #EBF3F7;
+
+      --track-bg: #EAE2DA;       /* Trilho das barras em bege macio */
+      --border-card: #EADFD7;
+
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-md: 14px;
       --radius-pill: 9999px;
-      --shadow-card: 0 4px 20px -2px rgba(17, 24, 39, 0.05), 0 2px 6px -1px rgba(17, 24, 39, 0.02);
+
+      --shadow-soft: 0 8px 30px rgba(78, 55, 40, 0.04), 0 2px 8px rgba(78, 55, 40, 0.02);
     }
 
     * {
@@ -43,219 +56,282 @@
     }
 
     body {
-      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       background-color: var(--bg);
-      color: var(--text-main);
-      padding: 32px 24px;
+      color: var(--text-body);
+      padding: 36px 20px;
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
     }
 
     .container {
-      max-width: 1200px;
+      max-width: 1140px;
       margin: 0 auto;
       display: flex;
       flex-direction: column;
       gap: 28px;
     }
 
-    /* Top Navigation / Header */
+    /* Top Header */
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
       gap: 16px;
-      padding-bottom: 8px;
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 16px;
     }
 
-    .brand-logo {
-      width: 48px;
-      height: 48px;
-      background: linear-gradient(135deg, #FF6B4A, #FF3D12);
-      border-radius: 14px;
+    .brand-icon {
+      width: 52px;
+      height: 52px;
+      background: linear-gradient(135deg, #E0533C, #F08C28);
+      border-radius: 18px;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #FFF;
-      font-size: 22px;
-      box-shadow: 0 8px 16px rgba(255, 90, 54, 0.25);
+      font-size: 26px;
+      box-shadow: 0 8px 20px rgba(224, 83, 60, 0.25);
     }
 
     .brand-title h1 {
-      font-size: 22px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 24px;
       font-weight: 800;
+      color: var(--text-title);
       letter-spacing: -0.5px;
-      color: var(--text-main);
     }
 
     .brand-title p {
-      font-size: 13px;
+      font-size: 13.5px;
       color: var(--text-muted);
       font-weight: 500;
     }
 
-    .badge-header {
+    .header-badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: #FFFFFF;
+      background: var(--card-bg);
+      border: 1px solid var(--border-card);
       padding: 8px 18px;
       border-radius: var(--radius-pill);
       font-size: 13px;
       font-weight: 600;
-      color: var(--text-muted);
-      box-shadow: var(--shadow-card);
-      border: 1px solid rgba(0,0,0,0.04);
+      color: var(--text-body);
+      box-shadow: var(--shadow-soft);
     }
 
     .dot-live {
-      width: 8px;
-      height: 8px;
-      background-color: #10B981;
+      width: 9px;
+      height: 9px;
+      background-color: var(--oliva);
       border-radius: 50%;
-      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+      box-shadow: 0 0 0 3px rgba(78, 135, 82, 0.25);
     }
 
-    /* Overview Banner Card */
-    .hero-banner {
-      background: linear-gradient(135deg, #1E293B, #0F172A);
-      color: #FFFFFF;
-      border-radius: var(--radius-lg);
+    /* Panorama: estrutura em três colunas, com luzes suaves de fundo. */
+    .hero-warm {
+      isolation: isolate;
+      overflow: hidden;
+      background: linear-gradient(115deg, #FFF9F2 0%, #FAF3EC 52%, #F8F0E7 100%);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-xl);
       padding: 32px 36px;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
+      flex-direction: column;
+      gap: 22px;
+      box-shadow: var(--shadow-soft);
       position: relative;
-      overflow: hidden;
-      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.15);
     }
 
-    .hero-banner::after {
-      content: "";
+    .hero-warm::before,
+    .hero-warm::after {
+      content: '';
       position: absolute;
-      right: -60px;
-      top: -60px;
-      width: 280px;
-      height: 280px;
-      background: radial-gradient(circle, rgba(255, 90, 54, 0.25) 0%, transparent 70%);
+      z-index: -1;
+      border-radius: 50%;
+      filter: blur(12px);
       pointer-events: none;
     }
 
-    .hero-text h2 {
-      font-size: 26px;
-      font-weight: 800;
-      letter-spacing: -0.5px;
-      margin-bottom: 8px;
+    .hero-warm::before {
+      width: 220px;
+      height: 220px;
+      right: -65px;
+      top: -110px;
+      background: rgba(240, 140, 40, 0.17);
     }
 
-    .hero-text p {
-      font-size: 14px;
-      color: #94A3B8;
-      max-width: 600px;
-      line-height: 1.6;
+    .hero-warm::after {
+      width: 170px;
+      height: 170px;
+      left: 34%;
+      bottom: -115px;
+      background: rgba(78, 135, 82, 0.13);
     }
 
-    .hero-chips {
+    .hero-top,
+    .hero-bullets {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-top {
       display: flex;
-      gap: 10px;
-      margin-top: 18px;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .hero-top h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 27px;
+      font-weight: 800;
+      color: var(--text-title);
+      letter-spacing: -0.5px;
+      white-space: nowrap;
+    }
+
+    .hero-pills {
+      display: flex;
+      gap: 8px;
+      justify-content: flex-end;
       flex-wrap: wrap;
     }
 
-    .hero-chip {
-      background: rgba(255, 255, 255, 0.1);
+    .hero-pill {
+      background: rgba(255, 255, 255, 0.82);
       backdrop-filter: blur(8px);
-      padding: 6px 14px;
+      border: 1px solid rgba(234, 223, 215, 0.9);
+      padding: 7px 12px;
       border-radius: var(--radius-pill);
       font-size: 12px;
-      font-weight: 600;
-      color: #E2E8F0;
+      font-weight: 700;
+      color: var(--text-title);
+      box-shadow: 0 3px 9px rgba(78, 55, 40, 0.04);
     }
 
-    /* Metric Cards Grid */
+    /* Os três achados ficam na mesma linha, sem uma terceira coluna solta. */
+    .hero-bullets {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .bullet-item {
+      min-height: 104px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 15px 14px;
+      background: rgba(255, 255, 255, 0.62);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(234, 223, 215, 0.78);
+      border-radius: 18px;
+      font-size: 13px;
+      color: var(--text-body);
+      line-height: 1.45;
+    }
+
+    @media (max-width: 900px) {
+      .hero-top { align-items: flex-start; flex-direction: column; }
+      .hero-pills { justify-content: flex-start; }
+      .hero-bullets { grid-template-columns: 1fr; }
+      .hero-top h2 { white-space: normal; }
+    }
+
+    .bullet-icon {
+      font-size: 18px;
+      line-height: 1;
+      margin-top: 2px;
+    }
+
+    /* KPI Cards Grid (Perguntas Principais) */
     .kpi-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
     }
 
     .kpi-card {
       background: var(--card-bg);
-      border-radius: var(--radius-lg);
-      padding: 24px;
-      box-shadow: var(--shadow-card);
-      border: 1px solid rgba(0, 0, 0, 0.03);
-      position: relative;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border-card);
+      padding: 24px 26px;
+      box-shadow: var(--shadow-soft);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      gap: 12px;
+      transition: transform 0.2s ease;
     }
 
     .kpi-card:hover {
       transform: translateY(-3px);
-      box-shadow: 0 10px 25px -4px rgba(0, 0, 0, 0.07);
     }
 
     .kpi-top {
       display: flex;
       justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 14px;
+      align-items: center;
     }
 
     .kpi-label {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--text-muted);
+      font-size: 12px;
+      font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.6px;
+      color: var(--text-muted);
     }
 
-    .kpi-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      padding: 4px 10px;
+    .pill-badge {
+      padding: 5px 12px;
       border-radius: var(--radius-pill);
       font-size: 12px;
       font-weight: 700;
+      letter-spacing: -0.2px;
     }
 
-    .badge-orange { background: var(--primary-soft); color: var(--primary); }
-    .badge-green { background: var(--secondary-soft); color: var(--secondary); }
-    .badge-indigo { background: var(--accent-soft); color: var(--accent); }
-    .badge-blue { background: var(--blue-soft); color: var(--blue); }
+    .pill-terracota { background: var(--terracota-soft); color: var(--terracota); }
+    .pill-oliva { background: var(--oliva-soft); color: var(--oliva); }
+    .pill-tangerina { background: var(--tangerina-soft); color: var(--tangerina); }
+    .pill-azul { background: var(--azul-soft); color: var(--azul-petroleo); }
 
     .kpi-value {
-      font-size: 34px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 38px;
       font-weight: 800;
-      color: var(--text-main);
+      color: var(--text-title);
       letter-spacing: -1px;
-      line-height: 1.1;
-      margin-bottom: 6px;
+      line-height: 1;
+      margin: 4px 0 2px 0;
     }
 
-    .kpi-footer {
-      font-size: 13px;
-      color: var(--text-sub);
-      display: flex;
-      align-items: center;
-      gap: 6px;
+    /* Letras miúdas agora com contraste confortável */
+    .kpi-detail {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--text-body);
+      line-height: 1.35;
     }
 
-    /* Analytics Section Grid */
+    .kpi-subtext {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    /* Grid dos Gráficos */
     .dashboard-grid {
       display: grid;
-      grid-template-columns: 1.8fr 1.2fr;
-      gap: 24px;
+      grid-template-columns: 1.7fr 1.3fr;
+      gap: 22px;
     }
 
     @media (max-width: 900px) {
@@ -266,81 +342,108 @@
 
     .chart-card {
       background: var(--card-bg);
-      border-radius: var(--radius-lg);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border-card);
       padding: 28px;
-      box-shadow: var(--shadow-card);
-      border: 1px solid rgba(0, 0, 0, 0.03);
+      box-shadow: var(--shadow-soft);
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 18px;
     }
 
     .chart-header {
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      align-items: flex-start;
+      gap: 12px;
     }
 
     .chart-title h3 {
-      font-size: 17px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 19px;
       font-weight: 700;
-      color: var(--text-main);
+      color: var(--text-title);
       letter-spacing: -0.3px;
     }
 
     .chart-title p {
       font-size: 13px;
       color: var(--text-muted);
-      margin-top: 2px;
+      margin-top: 3px;
     }
 
-    .chart-container {
+    /* Container do gráfico com padding interno para os números não cortarem */
+    .chart-box {
       position: relative;
-      height: 280px;
+      height: 290px;
+      width: 100%;
+      padding-left: 10px; /* Evita corte das centenas (100k, 200k...) */
+    }
+
+    /* Lista visual do Donut */
+    .donut-wrap {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    @media (max-width: 500px) {
+      .donut-wrap {
+        flex-direction: column;
+      }
+    }
+
+    .donut-canvas-area {
+      width: 200px;
+      height: 200px;
+      flex-shrink: 0;
+    }
+
+    .donut-legend-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex-grow: 1;
       width: 100%;
     }
 
-    /* Donut Legend Custom List */
-    .legend-list {
+    .donut-legend-row {
+      min-height: 46px;
       display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-top: 8px;
-    }
-
-    .legend-item {
-      display: flex;
-      align-items: center;
       justify-content: space-between;
-      font-size: 13px;
-      font-weight: 500;
-      padding: 6px 10px;
-      border-radius: 10px;
-      background: #F9FAFB;
+      align-items: center;
+      background: var(--bg-warm-card);
+      padding: 11px 14px;
+      border-radius: var(--radius-md);
+      font-size: 13.5px;
+      font-weight: 600;
     }
 
-    .legend-item-left {
+    .legend-left {
       display: flex;
       align-items: center;
       gap: 10px;
+      color: var(--text-title);
     }
 
-    .legend-indicator {
-      width: 10px;
-      height: 10px;
+    .color-dot {
+      width: 12px;
+      height: 12px;
       border-radius: 4px;
+      flex-shrink: 0;
     }
 
-    .legend-item-right {
+    .legend-right {
+      font-family: 'Outfit', sans-serif;
       font-weight: 700;
-      color: var(--text-main);
+      color: var(--text-title);
     }
 
-    /* Tables & Segment Breakdowns */
+    /* Tabelas e Barras Mais Grossas e Vivas */
     .bottom-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 24px;
+      gap: 22px;
     }
 
     @media (max-width: 850px) {
@@ -349,75 +452,83 @@
       }
     }
 
-    .ranking-table {
+    /* Tabelas com presença visual: linhas mais altas e barras encorpadas. */
+    .custom-table {
       width: 100%;
       border-collapse: separate;
-      border-spacing: 0 8px;
+      border-spacing: 0 12px;
     }
 
-    .ranking-table tr {
-      background: #FAFAFB;
+    .custom-table tr {
+      background: var(--bg-warm-card);
+      border-radius: var(--radius-md);
       transition: background 0.15s;
     }
 
-    .ranking-table tr:hover {
-      background: #F3F4F6;
+    .custom-table tr:hover {
+      background: #F2ECE4;
     }
 
-    .ranking-table td {
-      padding: 12px 14px;
-      font-size: 13px;
+    .custom-table td {
+      padding: 18px 16px;
+      font-size: 13.5px;
+      vertical-align: middle;
     }
 
-    .ranking-table td:first-child {
-      border-radius: 12px 0 0 12px;
-      font-weight: 600;
-      color: var(--text-main);
-    }
-
-    .ranking-table td:last-child {
-      border-radius: 0 12px 12px 0;
-      text-align: right;
+    .custom-table td:first-child {
+      border-radius: 14px 0 0 14px;
       font-weight: 700;
-      color: var(--text-main);
+      color: var(--text-title);
     }
 
-    .progress-bar-wrap {
+    .custom-table td:last-child {
+      border-radius: 0 14px 14px 0;
+      text-align: right;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      color: var(--text-title);
+      font-size: 14px;
+    }
+
+    .bar-track {
       width: 100%;
-      height: 7px;
-      background: #E5E7EB;
+      height: 18px;
+      background: var(--track-bg);
       border-radius: var(--radius-pill);
       overflow: hidden;
-      margin-top: 5px;
+      margin-top: 4px;
+      box-shadow: inset 0 1px 2px rgba(78, 55, 40, 0.06);
     }
 
-    .progress-bar-fill {
+    .bar-fill {
       height: 100%;
+      min-width: 14px;
       border-radius: var(--radius-pill);
+      transition: width 0.4s ease;
+      box-shadow: 0 2px 5px rgba(78, 55, 40, 0.14);
     }
 
-    /* Footer Note */
+    /* Footer */
     footer {
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
       gap: 12px;
-      padding-top: 16px;
-      border-top: 1px solid rgba(0,0,0,0.06);
+      padding-top: 20px;
+      border-top: 1px solid var(--border-card);
       font-size: 13px;
       color: var(--text-muted);
     }
 
-    .footer-links a {
-      color: var(--text-muted);
+    footer a {
+      color: var(--terracota);
       text-decoration: none;
-      font-weight: 600;
-      margin-left: 16px;
+      font-weight: 700;
     }
 
-    .footer-links a:hover {
-      color: var(--primary);
+    footer a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -425,146 +536,164 @@
 
   <div class="container">
     
-    <!-- Header -->
+    <!-- Topo / Identidade -->
     <header>
       <div class="brand">
-        <div class="brand-logo">🍽️</div>
+        <div class="brand-icon">🥗</div>
         <div class="brand-title">
           <h1>Abrasel Data Overview</h1>
           <p>Radiografia Nacional do Setor de Alimentação Fora do Lar</p>
         </div>
       </div>
-      <div class="badge-header">
+      <div class="header-badge">
         <span class="dot-live"></span>
         Base RFB Oficial — 72,8M Registros Analisados
       </div>
     </header>
 
-    <!-- Hero Executive Banner -->
-    <section class="hero-banner">
-      <div class="hero-text">
-        <h2>1.511.132 Empresas Ativas no Brasil</h2>
-        <p>
-          Processamento nacional dos dados abertos de CNPJ da Receita Federal (todas as 10 partes).
-          O setor é estruturado majoritariamente por empreendedores locais, com forte prevalência do MEI e pontos de venda únicos.
-        </p>
-        <div class="hero-chips">
-          <span class="hero-chip">🏬 97,6% Matrizes</span>
-          <span class="hero-chip">⚡ 1,54M Estabelecimentos</span>
-          <span class="hero-chip">🎯 100% de Casamento CNPJ</span>
-          <span class="hero-chip">📦 6 CNAEs Filtrados</span>
+    <!-- Card de Boas-Vindas: Agora com contraste suave, bege acolhedor e leitura rápida -->
+    <section class="hero-warm">
+      <div class="hero-top">
+        <h2>Panorama do Setor no Brasil</h2>
+        <div class="hero-pills">
+          <span class="hero-pill">📊 Base Nacional Completa</span>
+          <span class="hero-pill">✨ 100% de Casamento CNPJ</span>
+          <span class="hero-pill">🍽️ 6 CNAEs de Alimentação</span>
+        </div>
+      </div>
+
+      <div class="hero-bullets">
+        <div class="bullet-item">
+          <span class="bullet-icon">📍</span>
+          <div><strong>1.511.132 empresas ativas:</strong> quase a totalidade (97,6%) é de ponto único (matriz), sem franquia ou filiais.</div>
+        </div>
+        <div class="bullet-item">
+          <span class="bullet-icon">📈</span>
+          <div><strong>Ritmo de abertura:</strong> pico em 2021 (356k), ajuste em 2022-23 e retomada sólida em 2024-25 (315k).</div>
+        </div>
+        <div class="bullet-item">
+          <span class="bullet-icon">💼</span>
+          <div><strong>Dominância do MEI:</strong> 63,1% do setor é MEI formalizado via Simples Nacional, com capital mediano de R$ 5.000.</div>
         </div>
       </div>
     </section>
 
-    <!-- Top KPI Cards: The 3 Core Questions -->
+    <!-- Cards Principais (Respostas do Teste) -->
     <section class="kpi-grid">
-      <!-- Q1 -->
+
+      <!-- Pergunta 1 -->
       <div class="kpi-card">
         <div class="kpi-top">
-          <span class="kpi-label">Pergunta 1 • Empresas Ativas</span>
-          <span class="kpi-badge badge-orange">97,6% Matriz</span>
+          <span class="kpi-label">Pergunta 1 • Empresas</span>
+          <span class="pill-badge pill-terracota">97,6% Matriz</span>
         </div>
         <div class="kpi-value">1,51 M</div>
-        <div class="kpi-footer">
-          <span>1.543.267 pontos de venda físicos em operação</span>
+        <div>
+          <!-- Letras explicadas com cor escura e amigável para ler sem esforço -->
+          <div class="kpi-detail">1.511.132 empresas ativas</div>
+          <div class="kpi-subtext">Distribuídas em 1.543.267 lojas e pontos físicos</div>
         </div>
       </div>
 
-      <!-- Q2 -->
+      <!-- Pergunta 2 -->
       <div class="kpi-card">
         <div class="kpi-top">
-          <span class="kpi-label">Pergunta 2 • Ritmo de Abertura</span>
-          <span class="kpi-badge badge-green">Pico em 2021</span>
+          <span class="kpi-label">Pergunta 2 • Aberturas</span>
+          <span class="pill-badge pill-oliva">Pico pós-pandemia</span>
         </div>
         <div class="kpi-value">315 k</div>
-        <div class="kpi-footer">
-          <span>Aberturas em 2025 (retomada pós-ajuste de 2022-23)</span>
+        <div>
+          <div class="kpi-detail">Aberturas em 2025</div>
+          <div class="kpi-subtext">Retomada ao patamar do recorde de 2021 (356k)</div>
         </div>
       </div>
 
-      <!-- Q3 -->
+      <!-- Pergunta 3 -->
       <div class="kpi-card">
         <div class="kpi-top">
-          <span class="kpi-label">Pergunta 3 • Porte Líder</span>
-          <span class="kpi-badge badge-indigo">63,1% do Setor</span>
+          <span class="kpi-label">Pergunta 3 • Porte</span>
+          <span class="pill-badge pill-tangerina">63,1% do Setor</span>
         </div>
         <div class="kpi-value">MEI</div>
-        <div class="kpi-footer">
-          <span>953.769 empresas formalizadas via Simples</span>
+        <div>
+          <div class="kpi-detail">953.769 empresas MEI</div>
+          <div class="kpi-subtext">Microempresas (ME) vêm logo após com 32,2%</div>
         </div>
       </div>
 
       <!-- Capital Social -->
       <div class="kpi-card">
         <div class="kpi-top">
-          <span class="kpi-label">Capital Social Mediano</span>
-          <span class="kpi-badge badge-blue">Negócio Próprio</span>
+          <span class="kpi-label">Capital Social</span>
+          <span class="pill-badge pill-azul">Porte Mínimo</span>
         </div>
         <div class="kpi-value">R$ 5.000</div>
-        <div class="kpi-footer">
-          <span>90% das empresas têm capital até R$ 60 mil</span>
+        <div>
+          <div class="kpi-detail">Valor mediano declarado</div>
+          <div class="kpi-subtext">90% dos negócios abrem com até R$ 60 mil</div>
         </div>
       </div>
+
     </section>
 
-    <!-- Main Visualizations Grid -->
+    <!-- Gráficos Principais -->
     <section class="dashboard-grid">
       
-      <!-- Chart: 5-Year Evolution (Bar Chart with modern rounded pill look) -->
+      <!-- Gráfico 1: Barras de Aberturas (Mais espaçado, linhas visíveis e números sem corte) -->
       <div class="chart-card">
         <div class="chart-header">
           <div class="chart-title">
-            <h3>Evolução de Aberturas (Últimos Anos)</h3>
-            <p>Novos estabelecimentos registrados no setor por ano</p>
+            <h3>Evolução de Aberturas no Brasil</h3>
+            <p>Novos estabelecimentos de alimentação registrados por ano</p>
           </div>
-          <span class="kpi-badge badge-orange">Série Nacional</span>
+          <span class="pill-badge pill-terracota">Série Histórica</span>
         </div>
-        <div class="chart-container">
-          <canvas id="aberturasChart"></canvas>
+        <div class="chart-box">
+          <canvas id="chartAberturas"></canvas>
         </div>
       </div>
 
-      <!-- Chart: Porte Distribution (Donut Chart) -->
+      <!-- Gráfico 2: Donut de Porte -->
       <div class="chart-card">
         <div class="chart-header">
           <div class="chart-title">
             <h3>Distribuição por Porte</h3>
-            <p>Enquadramento real extraído do Simples Nacional</p>
+            <p>Classificação real comprovada pelo Simples Nacional</p>
           </div>
         </div>
-        <div style="display: flex; align-items: center; gap: 20px;">
-          <div style="width: 150px; height: 150px; flex-shrink: 0;">
-            <canvas id="porteChart"></canvas>
+
+        <div class="donut-wrap">
+          <div class="donut-canvas-area">
+            <canvas id="chartPorte"></canvas>
           </div>
-          <div class="legend-list" style="flex-grow: 1;">
-            <div class="legend-item">
-              <div class="legend-item-left">
-                <span class="legend-indicator" style="background: #FF5A36;"></span>
+          <div class="donut-legend-list">
+            <div class="donut-legend-row">
+              <div class="legend-left">
+                <span class="color-dot" style="background: #E0533C;"></span>
                 <span>MEI</span>
               </div>
-              <span class="legend-item-right">63,1% (953k)</span>
+              <span class="legend-right">63,1% (953k)</span>
             </div>
-            <div class="legend-item">
-              <div class="legend-item-left">
-                <span class="legend-indicator" style="background: #3B82F6;"></span>
+            <div class="donut-legend-row">
+              <div class="legend-left">
+                <span class="color-dot" style="background: #3B728C;"></span>
                 <span>Microempresa (ME)</span>
               </div>
-              <span class="legend-item-right">32,2% (486k)</span>
+              <span class="legend-right">32,2% (486k)</span>
             </div>
-            <div class="legend-item">
-              <div class="legend-item-left">
-                <span class="legend-indicator" style="background: #10B981;"></span>
+            <div class="donut-legend-row">
+              <div class="legend-left">
+                <span class="color-dot" style="background: #4E8752;"></span>
                 <span>Pequeno Porte (EPP)</span>
               </div>
-              <span class="legend-item-right">3,9% (59k)</span>
+              <span class="legend-right">3,9% (59k)</span>
             </div>
-            <div class="legend-item">
-              <div class="legend-item-left">
-                <span class="legend-indicator" style="background: #E5E7EB;"></span>
-                <span>Demais</span>
+            <div class="donut-legend-row">
+              <div class="legend-left">
+                <span class="color-dot" style="background: #D5C9BF;"></span>
+                <span>Demais Portes</span>
               </div>
-              <span class="legend-item-right">0,7% (11k)</span>
+              <span class="legend-right">0,7% (11k)</span>
             </div>
           </div>
         </div>
@@ -572,107 +701,107 @@
 
     </section>
 
-    <!-- Bottom Secondary Insights: Regions & CNAEs -->
+    <!-- Tabelas Visuais: Barras mais grossas e rótulos claros -->
     <section class="bottom-grid">
       
-      <!-- Top States Ranking -->
+      <!-- Ranking por Estado -->
       <div class="chart-card">
         <div class="chart-header">
           <div class="chart-title">
             <h3>Concentração Regional (Top 5 Estados)</h3>
-            <p>São Paulo lidera com mais de 1/4 dos pontos do país</p>
+            <p>Contagem ativa; barras proporcionais ao estado líder</p>
           </div>
         </div>
-        <table class="ranking-table">
+        <table class="custom-table">
           <tr>
-            <td style="width: 35%;">São Paulo (SP)</td>
-            <td style="width: 45%;">
-              <div class="progress-bar-wrap">
-                <div class="progress-bar-fill" style="width: 27.7%; background: #FF5A36;"></div>
+            <td style="width: 38%;">São Paulo (SP)</td>
+            <td style="width: 36%;">
+              <div class="bar-track">
+                <div class="bar-fill" style="width: 100%; background: #E0533C;"></div>
               </div>
             </td>
-            <td>427.708 (27,7%)</td>
+            <td>427.708 <span style="font-size: 11px; font-weight: 500; color: var(--text-muted);">(27,7%)</span></td>
           </tr>
           <tr>
             <td>Minas Gerais (MG)</td>
             <td>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar-fill" style="width: 11.3%; background: #FF7B5E;"></div>
+              <div class="bar-track">
+                <div class="bar-fill" style="width: 40.7%; background: #F08C28;"></div>
               </div>
             </td>
-            <td>174.192 (11,3%)</td>
+            <td>174.192 <span style="font-size: 11px; font-weight: 500; color: var(--text-muted);">(11,3%)</span></td>
           </tr>
           <tr>
             <td>Rio de Janeiro (RJ)</td>
             <td>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar-fill" style="width: 10.9%; background: #3B82F6;"></div>
+              <div class="bar-track">
+                <div class="bar-fill" style="width: 39.3%; background: #3B728C;"></div>
               </div>
             </td>
-            <td>168.032 (10,9%)</td>
+            <td>168.032 <span style="font-size: 11px; font-weight: 500; color: var(--text-muted);">(10,9%)</span></td>
           </tr>
           <tr>
             <td>Paraná (PR)</td>
             <td>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar-fill" style="width: 6.3%; background: #10B981;"></div>
+              <div class="bar-track">
+                <div class="bar-fill" style="width: 22.9%; background: #4E8752;"></div>
               </div>
             </td>
-            <td>97.872 (6,3%)</td>
+            <td>97.872 <span style="font-size: 11px; font-weight: 500; color: var(--text-muted);">(6,3%)</span></td>
           </tr>
           <tr>
             <td>Rio Grande do Sul (RS)</td>
             <td>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar-fill" style="width: 5.3%; background: #6366F1;"></div>
+              <div class="bar-track">
+                <div class="bar-fill" style="width: 19%; background: #8B5E83;"></div>
               </div>
             </td>
-            <td>81.087 (5,3%)</td>
+            <td>81.087 <span style="font-size: 11px; font-weight: 500; color: var(--text-muted);">(5,3%)</span></td>
           </tr>
         </table>
       </div>
 
-      <!-- Segment Breakdown -->
+      <!-- Ranking por Atividade Econômica -->
       <div class="chart-card">
         <div class="chart-header">
           <div class="chart-title">
-            <h3>Principais Atividades Econômicas</h3>
-            <p>Lanchonetes e restaurantes somam mais da metade do setor</p>
+            <h3>Principais Tipos de Negócio</h3>
+            <p>Contagem ativa; barras proporcionais ao tipo líder</p>
           </div>
         </div>
-        <table class="ranking-table">
+        <table class="custom-table">
           <tr>
-            <td style="width: 50%;">Lanchonetes e Casas de Suco</td>
-            <td style="width: 25%;">
-              <div class="progress-bar-wrap">
-                <div class="progress-bar-fill" style="width: 30.6%; background: #FF5A36;"></div>
+            <td style="width: 44%;">Lanchonetes e Sucos</td>
+            <td style="width: 32%;">
+              <div class="bar-track">
+                <div class="bar-fill" style="width: 100%; background: #E0533C;"></div>
               </div>
             </td>
             <td>472.218</td>
           </tr>
           <tr>
-            <td>Restaurantes e Similares</td>
+            <td>Restaurantes</td>
             <td>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar-fill" style="width: 26.1%; background: #3B82F6;"></div>
+              <div class="bar-track">
+                <div class="bar-fill" style="width: 85.4%; background: #F08C28;"></div>
               </div>
             </td>
             <td>403.467</td>
           </tr>
           <tr>
-            <td>Comida Pronta (Delivery / Marmitas)</td>
+            <td>Delivery / Marmitas</td>
             <td>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar-fill" style="width: 24.6%; background: #10B981;"></div>
+              <div class="bar-track">
+                <div class="bar-fill" style="width: 80.5%; background: #4E8752;"></div>
               </div>
             </td>
             <td>380.242</td>
           </tr>
           <tr>
-            <td>Bares (Sem Entretenimento)</td>
+            <td>Bares Tradicionais</td>
             <td>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar-fill" style="width: 7.7%; background: #F59E0B;"></div>
+              <div class="bar-track">
+                <div class="bar-fill" style="width: 25.2%; background: #DCA134;"></div>
               </div>
             </td>
             <td>119.157</td>
@@ -680,8 +809,8 @@
           <tr>
             <td>Padarias com Revenda</td>
             <td>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar-fill" style="width: 5.6%; background: #6366F1;"></div>
+              <div class="bar-track">
+                <div class="bar-fill" style="width: 18.4%; background: #8B5E83;"></div>
               </div>
             </td>
             <td>87.081</td>
@@ -691,22 +820,22 @@
 
     </section>
 
-    <!-- Footer -->
+    <!-- Rodapé -->
     <footer>
       <div>
-        <strong>Abrasel Tech Test</strong> — Desenvolvido por Christiano Gonara • Engenharia de Dados com DuckDB & Parquet
+        <strong>Teste Técnico Abrasel</strong> — Elaborado por Christiano Gonara • Dados tratados com DuckDB & Parquet
       </div>
-      <div class="footer-links">
-        <a href="https://github.com/christiano-gonara/teste-abrasel-dados" target="_blank">Repositório no GitHub →</a>
+      <div>
+        <a href="https://github.com/christiano-gonara/teste-abrasel-dados" target="_blank">Ver Repositório no GitHub →</a>
       </div>
     </footer>
 
   </div>
 
-  <!-- Chart.js Setup Scripts -->
+  <!-- Configuração dos Gráficos com Barras Mais Grossas e Linhas Visíveis -->
   <script>
-    // 1. Aberturas Bar Chart
-    const ctxAberturas = document.getElementById('aberturasChart').getContext('2d');
+    // 1. Gráfico de Aberturas
+    const ctxAberturas = document.getElementById('chartAberturas').getContext('2d');
     new Chart(ctxAberturas, {
       type: 'bar',
       data: {
@@ -715,33 +844,41 @@
           label: 'Novas Aberturas',
           data: [325516, 356849, 282586, 268190, 284904, 315376, 230057],
           backgroundColor: [
-            '#FF7B5E',
-            '#FF5A36', // Highlight peak
-            '#CBD5E1',
-            '#CBD5E1',
-            '#93C5FD',
-            '#3B82F6', // Recovery
-            '#E2E8F0'  // Current year partial
+            '#F08C28', // 2020
+            '#E0533C', // 2021 (Pico em destaque terracota)
+            '#D5C9BF', // 2022
+            '#D5C9BF', // 2023
+            '#9ABECF', // 2024
+            '#3B728C', // 2025 (Retomada azul petróleo)
+            '#EAE2DA'  // 2026 parcial
           ],
-          borderRadius: 8,
+          borderRadius: 10,
           borderSkipped: false,
-          barThickness: 28
+          barThickness: 34 // Barras mais robustas e gostosas de ver
         }]
       },
       options: {
         responsive: true,
         maintainAspectRatio: false,
+        layout: {
+          padding: {
+            left: 12,
+            right: 12,
+            top: 10,
+            bottom: 0
+          }
+        },
         plugins: {
           legend: { display: false },
           tooltip: {
-            backgroundColor: '#1E293B',
+            backgroundColor: '#2D231E',
             padding: 12,
             titleFont: { family: 'Plus Jakarta Sans', size: 13, weight: 'bold' },
             bodyFont: { family: 'Plus Jakarta Sans', size: 13 },
             displayColors: false,
             callbacks: {
-              label: function(context) {
-                return new Intl.NumberFormat('pt-BR').format(context.parsed.y) + ' novos estabelecimentos';
+              label: function(ctx) {
+                return new Intl.NumberFormat('pt-BR').format(ctx.parsed.y) + ' novos pontos abertos';
               }
             }
           }
@@ -749,31 +886,39 @@
         scales: {
           x: {
             grid: { display: false },
-            ticks: { font: { family: 'Plus Jakarta Sans', weight: '600' }, color: '#64748B' }
+            ticks: {
+              font: { family: 'Outfit', size: 13, weight: '700' },
+              color: '#5C4D44'
+            }
           },
           y: {
-            border: { dash: [4, 4] },
-            grid: { color: '#F1F5F9' },
+            grid: {
+              color: '#EADFD7', // Linhas horizontais bem visíveis em bege/creme
+              lineWidth: 1.2
+            },
             ticks: {
-              font: { family: 'Plus Jakarta Sans' },
-              color: '#94A3B8',
-              callback: function(value) { return (value / 1000) + 'k'; }
+              font: { family: 'Plus Jakarta Sans', size: 12, weight: '600' },
+              color: '#8C7A70',
+              padding: 10, // Não corta os números
+              callback: function(val) {
+                return (val / 1000) + 'k';
+              }
             }
           }
         }
       }
     });
 
-    // 2. Porte Donut Chart
-    const ctxPorte = document.getElementById('porteChart').getContext('2d');
+    // 2. Gráfico Donut de Porte
+    const ctxPorte = document.getElementById('chartPorte').getContext('2d');
     new Chart(ctxPorte, {
       type: 'doughnut',
       data: {
         labels: ['MEI', 'Microempresa (ME)', 'Pequeno Porte (EPP)', 'Demais'],
         datasets: [{
           data: [63.1, 32.2, 3.9, 0.7],
-          backgroundColor: ['#FF5A36', '#3B82F6', '#10B981', '#E5E7EB'],
-          borderWidth: 4,
+          backgroundColor: ['#E0533C', '#3B728C', '#4E8752', '#D5C9BF'],
+          borderWidth: 5,
           borderColor: '#FFFFFF',
           hoverOffset: 4
         }]
@@ -781,15 +926,17 @@
       options: {
         responsive: true,
         maintainAspectRatio: false,
-        cutout: '72%',
+        cutout: '56%',
         plugins: {
           legend: { display: false },
           tooltip: {
-            backgroundColor: '#1E293B',
+            backgroundColor: '#2D231E',
             padding: 10,
             displayColors: true,
             callbacks: {
-              label: function(context) { return ' ' + context.label + ': ' + context.parsed + '%'; }
+              label: function(ctx) {
+                return ' ' + ctx.label + ': ' + ctx.parsed + '%';
+              }
             }
           }
         }

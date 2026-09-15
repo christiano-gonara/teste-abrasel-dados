@@ -617,7 +617,7 @@
         <h2>Panorama do Setor no Brasil</h2>
         <div class="hero-pills">
           <span class="hero-pill"><i data-lucide="chart-no-axes-combined"></i>Base Nacional Completa</span>
-          <span class="hero-pill"><i data-lucide="link-2"></i>100% Empresa–Estabelecimento</span>
+          <span class="hero-pill"><i data-lucide="link-2"></i>Dados unificados</span>
           <span class="hero-pill"><i data-lucide="utensils"></i>6 CNAEs de Alimentação</span>
         </div>
       </div>
@@ -644,7 +644,7 @@
       <!-- Pergunta 1 -->
       <div class="kpi-card">
         <div class="kpi-top">
-          <span class="kpi-label">Pergunta 1 • Empresas</span>
+          <span class="kpi-label">Pergunta 1 • Ativas hoje</span>
           <span class="pill-badge pill-terracota">97,6% Matriz</span>
         </div>
         <div class="kpi-value">1,51 M</div>
@@ -658,20 +658,20 @@
       <!-- Pergunta 2 -->
       <div class="kpi-card">
         <div class="kpi-top">
-          <span class="kpi-label">Pergunta 2 • Aberturas</span>
-          <span class="pill-badge pill-oliva">Pico pós-pandemia</span>
+          <span class="kpi-label">Pergunta 2 • Últimos 5 anos</span>
+          <span class="pill-badge pill-oliva">Pico em 2021</span>
         </div>
         <div class="kpi-value">315 k</div>
         <div>
-          <div class="kpi-detail">Aberturas em 2025</div>
-          <div class="kpi-subtext">Retomada ao patamar do recorde de 2021 (356k)</div>
+          <div class="kpi-detail">315.376 novas empresas em 2025</div>
+          <div class="kpi-subtext">A evolução de 2021 a 2025 está no gráfico abaixo</div>
         </div>
       </div>
 
       <!-- Pergunta 3 -->
       <div class="kpi-card">
         <div class="kpi-top">
-          <span class="kpi-label">Pergunta 3 • Porte</span>
+          <span class="kpi-label">Pergunta 3 • Porte predominante</span>
           <span class="pill-badge pill-tangerina">63,1% do Setor</span>
         </div>
         <div class="kpi-value">MEI</div>
@@ -703,8 +703,8 @@
       <div class="chart-card">
         <div class="chart-header">
           <div class="chart-title">
-            <h3>Evolução de Aberturas no Brasil</h3>
-            <p>Novos estabelecimentos de alimentação registrados por ano</p>
+            <h3>Evolução das Aberturas — Últimos 5 Anos</h3>
+            <p>Novas empresas de alimentação abertas de 2021 a 2025</p>
           </div>
           <span class="pill-badge pill-terracota">Série Histórica</span>
         </div>
@@ -903,18 +903,16 @@
     new Chart(ctxAberturas, {
       type: 'bar',
       data: {
-        labels: ['2020', '2021', '2022', '2023', '2024', '2025', '2026*'],
+        labels: ['2021', '2022', '2023', '2024', '2025'],
         datasets: [{
-          label: 'Novas Aberturas',
-          data: [325516, 356849, 282586, 268190, 284904, 315376, 230057],
+          label: 'Novas Empresas',
+          data: [356849, 282586, 268190, 284904, 315376],
           backgroundColor: [
-            '#F08C28', // 2020
-            '#E0533C', // 2021 (Pico em destaque terracota)
+            '#E0533C', // 2021, pico da série
             '#D5C9BF', // 2022
             '#D5C9BF', // 2023
             '#9ABECF', // 2024
-            '#3B728C', // 2025 (Retomada azul petróleo)
-            '#EAE2DA'  // 2026 parcial
+            '#3B728C'  // 2025, retomada
           ],
           borderRadius: 10,
           borderSkipped: false,
@@ -942,7 +940,7 @@
             displayColors: false,
             callbacks: {
               label: function(ctx) {
-                return new Intl.NumberFormat('pt-BR').format(ctx.parsed.y) + ' novos pontos abertos';
+                return new Intl.NumberFormat('pt-BR').format(ctx.parsed.y) + ' novas empresas abertas';
               }
             }
           }

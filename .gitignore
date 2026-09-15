@@ -11,3 +11,6 @@ dados/intermediario/
 # anexo de release. No repositório fica só a amostra em dados/amostra/.
 dados/tratados/base_afl.parquet
 dados/tratados/base_afl.csv
+
+# exportação gerada do Jupyter: a entrega técnica versionada é o .ipynb
+notebooks/analise_abrasel.html

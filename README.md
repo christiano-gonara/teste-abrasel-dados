@@ -7,12 +7,16 @@ restaurantes e alimentação fora do lar (AFL), com os seis CNAEs do enunciado.
 **Análise Técnica & Código:** O notebook [`notebooks/analise_abrasel.ipynb`](notebooks/analise_abrasel.ipynb) tem toda a execução em Python/DuckDB.  
 **Base Tratada:** Disponível em [releases](https://github.com/christiano-gonara/teste-abrasel-dados/releases/latest) (396 MB Parquet).
 
+## Prévia do dashboard
+
+![Navegação pelo dashboard executivo](assets/dashboard-preview.gif)
+
 ## Respostas
 
 | Pergunta | Resposta |
 |---|---|
 | Empresas do setor ativas hoje | **1.511.132** empresas, em 1.543.267 estabelecimentos (97,6% matriz) |
-| Evolução da abertura nos últimos 5 anos | 2021: 356.849 · 2022: 282.586 · 2023: 268.190 · 2024: 284.904 · 2025: 315.376 (2026, oito meses: 230.057) |
+| Evolução da abertura nos últimos 5 anos | **1.507.905** empresas abertas entre 2021 e 2025: 2021: 356.849 · 2022: 282.586 · 2023: 268.190 · 2024: 284.904 · 2025: 315.376 |
 | Porte predominante | **MEI, com 63,1%** das empresas ativas; microempresa 32,2%, EPP 3,9% |
 
 Números de todo o país: foram processados os arquivos completos (72.789.638 estabelecimentos),

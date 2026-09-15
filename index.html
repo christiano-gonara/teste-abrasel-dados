@@ -10,8 +10,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   
-  <!-- Chart.js para renderização nítida -->
+  <!-- Gráficos e ícones vetoriais -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
     :root {
@@ -246,10 +247,69 @@
       .hero-top h2 { white-space: normal; }
     }
 
+    .brand-icon svg {
+      width: 25px;
+      height: 25px;
+      stroke-width: 2.4;
+    }
+
+    .hero-warm {
+      padding: 24px 28px;
+      gap: 14px;
+    }
+
+    .hero-top h2 {
+      font-size: 25px;
+    }
+
+    .hero-pills {
+      gap: 7px;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 11px;
+      font-size: 11.5px;
+    }
+
+    .hero-pill svg {
+      width: 15px;
+      height: 15px;
+      stroke-width: 2.3;
+      color: var(--terracota);
+    }
+
+    .hero-bullets {
+      gap: 10px;
+    }
+
+    .bullet-item {
+      min-height: 0;
+      gap: 10px;
+      padding: 11px 12px;
+      font-size: 12.5px;
+      line-height: 1.4;
+    }
+
     .bullet-icon {
-      font-size: 18px;
-      line-height: 1;
-      margin-top: 2px;
+      width: 27px;
+      height: 27px;
+      display: inline-flex;
+      flex: 0 0 27px;
+      align-items: center;
+      justify-content: center;
+      margin-top: 0;
+      color: var(--terracota);
+      background: var(--terracota-soft);
+      border-radius: 9px;
+    }
+
+    .bullet-icon svg {
+      width: 15px;
+      height: 15px;
+      stroke-width: 2.4;
     }
 
     /* KPI Cards Grid (Perguntas Principais) */
@@ -539,7 +599,7 @@
     <!-- Topo / Identidade -->
     <header>
       <div class="brand">
-        <div class="brand-icon">🥗</div>
+        <div class="brand-icon" aria-label="Setor de alimentação"><i data-lucide="utensils"></i></div>
         <div class="brand-title">
           <h1>Abrasel Data Overview</h1>
           <p>Radiografia Nacional do Setor de Alimentação Fora do Lar</p>
@@ -551,29 +611,29 @@
       </div>
     </header>
 
-    <!-- Card de Boas-Vindas: Agora com contraste suave, bege acolhedor e leitura rápida -->
+    <!-- Resumo executivo com três achados diretos. -->
     <section class="hero-warm">
       <div class="hero-top">
         <h2>Panorama do Setor no Brasil</h2>
         <div class="hero-pills">
-          <span class="hero-pill">📊 Base Nacional Completa</span>
-          <span class="hero-pill">✨ 100% de Casamento CNPJ</span>
-          <span class="hero-pill">🍽️ 6 CNAEs de Alimentação</span>
+          <span class="hero-pill"><i data-lucide="chart-no-axes-combined"></i>Base Nacional Completa</span>
+          <span class="hero-pill"><i data-lucide="link-2"></i>100% Empresa–Estabelecimento</span>
+          <span class="hero-pill"><i data-lucide="utensils"></i>6 CNAEs de Alimentação</span>
         </div>
       </div>
 
       <div class="hero-bullets">
         <div class="bullet-item">
-          <span class="bullet-icon">📍</span>
-          <div><strong>1.511.132 empresas ativas:</strong> quase a totalidade (97,6%) é de ponto único (matriz), sem franquia ou filiais.</div>
+          <span class="bullet-icon"><i data-lucide="map-pin"></i></span>
+          <div><strong>1.511.132 empresas ativas:</strong> 97,6% têm somente a matriz, sem filiais.</div>
         </div>
         <div class="bullet-item">
-          <span class="bullet-icon">📈</span>
-          <div><strong>Ritmo de abertura:</strong> pico em 2021 (356k), ajuste em 2022-23 e retomada sólida em 2024-25 (315k).</div>
+          <span class="bullet-icon"><i data-lucide="trending-up"></i></span>
+          <div><strong>Ritmo de abertura:</strong> pico em 2021 (356k), seguido de retomada em 2024–25 (315k).</div>
         </div>
         <div class="bullet-item">
-          <span class="bullet-icon">💼</span>
-          <div><strong>Dominância do MEI:</strong> 63,1% do setor é MEI formalizado via Simples Nacional, com capital mediano de R$ 5.000.</div>
+          <span class="bullet-icon"><i data-lucide="briefcase-business"></i></span>
+          <div><strong>Dominância do MEI:</strong> 63,1% do setor é MEI; capital mediano de R$ 5.000.</div>
         </div>
       </div>
     </section>
@@ -834,6 +894,10 @@
 
   <!-- Configuração dos Gráficos com Barras Mais Grossas e Linhas Visíveis -->
   <script>
+    if (window.lucide) {
+      lucide.createIcons({ attrs: { 'stroke-width': 2.25 } });
+    }
+
     // 1. Gráfico de Aberturas
     const ctxAberturas = document.getElementById('chartAberturas').getContext('2d');
     new Chart(ctxAberturas, {

@@ -6,6 +6,15 @@ Análise nacional do setor de bares, restaurantes e alimentação fora do lar, u
 
 [**Abrir dashboard**](index.html) · [**Ver notebook técnico**](notebooks/analise_abrasel.ipynb) · [**Baixar base tratada (Parquet)**](https://github.com/christiano-gonara/teste-abrasel-dados/releases/latest)
 
+<details>
+<summary><strong>Ver navegação do dashboard (15 segundos)</strong></summary>
+
+<br>
+
+![Prévia animada do dashboard](assets/dashboard-tour.gif)
+
+</details>
+
 ## Respostas do teste
 
 | Pergunta | Resposta |

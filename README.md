@@ -1,14 +1,32 @@
 # Teste técnico Abrasel — estágio em dados
 
-![Prévia do dashboard executivo](assets/capa-dashboard.png)
-
 Análise nacional do setor de bares, restaurantes e alimentação fora do lar, usando os dados abertos de CNPJ da Receita Federal (competência 2026-08).
 
 [**Abrir dashboard**](index.html) · [**Ver notebook técnico**](notebooks/analise_abrasel.ipynb) · [**Baixar base tratada (Parquet)**](https://github.com/christiano-gonara/teste-abrasel-dados/releases/latest)
 
-## Navegação do dashboard
+## Dashboard executivo
+
+<table>
+  <tr>
+    <td width="33.33%" valign="top"><img src="assets/01-panorama.png" alt="Panorama nacional do setor"><br><sub><b>01 · Panorama nacional</b><br>Dimensão e recorte da análise.</sub></td>
+    <td width="33.33%" valign="top"><img src="assets/02-empresas-ativas.png" alt="Empresas ativas"><br><sub><b>02 · Empresas ativas</b><br>Leitura da primeira pergunta.</sub></td>
+    <td width="33.33%" valign="top"><img src="assets/03-aberturas.png" alt="Evolução das aberturas"><br><sub><b>03 · Aberturas em cinco anos</b><br>Evolução de 2021 a 2025.</sub></td>
+  </tr>
+  <tr>
+    <td width="33.33%" valign="top"><img src="assets/04-porte.png" alt="Distribuição por porte"><br><sub><b>04 · Porte predominante</b><br>MEI, ME, EPP e demais.</sub></td>
+    <td width="33.33%" valign="top"><img src="assets/05-estados.png" alt="Concentração regional"><br><sub><b>05 · Concentração regional</b><br>Os cinco estados com mais empresas.</sub></td>
+    <td width="33.33%" valign="top"><img src="assets/06-negocios.png" alt="Principais tipos de negócio"><br><sub><b>06 · Tipos de negócio</b><br>Atividades mais representativas.</sub></td>
+  </tr>
+</table>
+
+<details>
+<summary><strong>Ver navegação do dashboard</strong></summary>
+
+<br>
 
 ![Prévia animada do dashboard](assets/dashboard-tour.gif)
+
+</details>
 
 ## Respostas do teste
 

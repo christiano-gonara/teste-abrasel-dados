@@ -19,14 +19,9 @@ Análise nacional do setor de bares, restaurantes e alimentação fora do lar, u
   </tr>
 </table>
 
-<details>
-<summary><strong>Ver navegação do dashboard</strong></summary>
-
-<br>
+## Navegação do dashboard
 
 ![Prévia animada do dashboard](assets/dashboard-tour.gif)
-
-</details>
 
 ## Respostas do teste
 

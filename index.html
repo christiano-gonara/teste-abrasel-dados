@@ -136,6 +136,43 @@
       box-shadow: 0 0 0 3px rgba(78, 135, 82, 0.25);
     }
 
+    .resource-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .resource-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 10px 15px;
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-pill);
+      background: var(--card-bg);
+      color: var(--text-body);
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 700;
+      box-shadow: var(--shadow-soft);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .resource-link:hover {
+      transform: translateY(-1px);
+      border-color: var(--terracota);
+    }
+
+    .resource-link svg {
+      width: 15px;
+      height: 15px;
+      color: var(--terracota);
+    }
+
+    @media (max-width: 600px) {
+      .resource-link { flex: 1 1 100%; justify-content: center; }
+    }
+
     /* Panorama: estrutura em três colunas, com luzes suaves de fundo. */
     .hero-warm {
       isolation: isolate;
@@ -610,6 +647,12 @@
         Base RFB Oficial — 72,8M Registros Analisados
       </div>
     </header>
+
+    <nav class="resource-nav" aria-label="Materiais da entrega">
+      <a class="resource-link" href="https://github.com/christiano-gonara/teste-abrasel-dados/blob/main/notebooks/analise_abrasel.ipynb" target="_blank"><i data-lucide="file-code-2"></i>Notebook técnico</a>
+      <a class="resource-link" href="https://github.com/christiano-gonara/teste-abrasel-dados/releases/latest" target="_blank"><i data-lucide="database"></i>Base completa</a>
+      <a class="resource-link" href="https://github.com/christiano-gonara/teste-abrasel-dados" target="_blank"><i data-lucide="github"></i>Repositório</a>
+    </nav>
 
     <!-- Resumo executivo com três achados diretos. -->
     <section class="hero-warm">

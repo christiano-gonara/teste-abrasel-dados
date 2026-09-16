@@ -2,7 +2,7 @@
 
 Análise nacional do setor de bares, restaurantes e alimentação fora do lar, usando os dados abertos de CNPJ da Receita Federal (competência 2026-08).
 
-[**Abrir dashboard**](index.html) · [**Ver notebook técnico**](notebooks/analise_abrasel.ipynb) · [**Baixar base tratada (Parquet)**](https://github.com/christiano-gonara/teste-abrasel-dados/releases/latest)
+[**Abrir dashboard publicado**](https://christiano-gonara.github.io/teste-abrasel-dados/) · [**Ver notebook técnico**](notebooks/analise_abrasel.ipynb) · [**Baixar base tratada (Parquet)**](https://github.com/christiano-gonara/teste-abrasel-dados/releases/latest)
 
 ## Dashboard executivo
 

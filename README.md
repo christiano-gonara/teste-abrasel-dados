@@ -1,4 +1,4 @@
-# Teste técnico Abrasel — estágio em dados
+# Teste técnico Abrasel
 
 Análise nacional do setor de bares, restaurantes e alimentação fora do lar, usando os dados abertos de CNPJ da Receita Federal (competência 2026-08).
 

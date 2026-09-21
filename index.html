@@ -74,144 +74,216 @@
       gap: 28px;
     }
 
-    /* Top Header */
-    header {
+    /* Header Unificado Moderno (estilo Neo-brutalist refinado) */
+    .unified-header {
+      background: var(--card-bg);
+      border: 2px solid var(--border-card);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-brutal);
+      padding: 22px 26px 18px 26px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .header-top-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
       gap: 16px;
-      padding: 24px 28px;
-      background: var(--card-bg);
-      border: 2px solid var(--border-card);
-      border-radius: var(--radius-xl);
-      box-shadow: var(--shadow-brutal);
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 14px;
     }
 
     .brand-icon {
-      width: 52px;
-      height: 52px;
+      width: 48px;
+      height: 48px;
       background: linear-gradient(135deg, #E0533C, #F08C28);
-      border-radius: 18px;
+      border: 2px solid var(--border-card);
+      border-radius: 16px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 26px;
-      box-shadow: 0 8px 20px rgba(224, 83, 60, 0.25);
+      color: #FFFFFF;
+      box-shadow: 2px 2px 0 var(--border-card);
+    }
+
+    .brand-icon svg {
+      width: 24px;
+      height: 24px;
+      stroke-width: 2.3;
     }
 
     .brand-title h1 {
       font-family: 'Outfit', sans-serif;
-      font-size: 24px;
+      font-size: 22px;
       font-weight: 800;
       color: var(--text-title);
-      letter-spacing: -0.5px;
+      letter-spacing: -0.4px;
+      line-height: 1.15;
     }
 
     .brand-title p {
-      font-size: 13.5px;
+      font-size: 13px;
       color: var(--text-muted);
       font-weight: 500;
     }
 
-    .header-badge {
+    .header-actions {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    /* Distinção clara de Affordance: Badge de status é informativo (sem hover/click) */
+    .status-tag {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       background: var(--bg-warm-card);
-      border: 1.5px solid var(--border-card);
-      padding: 8px 18px;
+      border: 1.5px solid #D5C9BF;
+      padding: 6px 14px;
       border-radius: var(--radius-pill);
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 600;
       color: var(--text-body);
+      user-select: none;
     }
 
     .dot-live {
-      width: 9px;
-      height: 9px;
+      width: 8px;
+      height: 8px;
       background-color: var(--oliva);
       border-radius: 50%;
       box-shadow: 0 0 0 3px rgba(78, 135, 82, 0.25);
     }
 
-    .resource-nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .resource-link {
+    /* Botão de contato com affordance nítida de clique */
+    .contact-btn {
       display: inline-flex;
       align-items: center;
       gap: 7px;
-      padding: 10px 16px;
+      background: #FFFFFF;
+      border: 1.5px solid var(--border-card);
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-title);
+      text-decoration: none;
+      box-shadow: 2px 2px 0 var(--border-card);
+      transition: all 0.15s ease;
+    }
+
+    .contact-btn:hover {
+      background: #FFD166;
+      transform: translateY(-1px);
+    }
+
+    .contact-btn svg {
+      width: 14px;
+      height: 14px;
+      stroke-width: 2.2;
+    }
+
+    /* Barra inferior de navegação e atalhos de materiais integrada */
+    .header-nav-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding-top: 14px;
+      border-top: 1.5px dashed #DDCFC3;
+    }
+
+    .nav-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .nav-tab {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
       border: 1.5px solid var(--border-card);
       border-radius: var(--radius-pill);
-      background: var(--card-bg);
+      background: var(--bg-warm-card);
       color: var(--text-title);
       text-decoration: none;
       font-size: 12px;
       font-weight: 700;
       box-shadow: 2px 2px 0 var(--border-card);
-      transition: transform 0.2s ease, background 0.2s ease;
+      transition: all 0.15s ease;
     }
 
-    .resource-link:hover {
-      transform: translateY(-1px);
-      background: var(--bg-warm-card);
-    }
-
-    .resource-link svg {
-      width: 15px;
-      height: 15px;
-      color: var(--terracota);
-    }
-
-    .question-nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      padding: 13px;
-      border: 2px solid var(--text-title);
-      border-radius: var(--radius-lg);
-      background: var(--card-bg);
-      box-shadow: 3px 3px 0 var(--text-title);
-    }
-
-    .question-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      padding: 10px 15px;
-      border: 1.5px solid var(--text-title);
-      border-radius: var(--radius-pill);
-      background: var(--bg-warm-card);
-      color: var(--text-title);
-      text-decoration: none;
-      font-size: 12px;
-      font-weight: 800;
-      transition: transform 0.2s ease, background 0.2s ease;
-    }
-
-    .question-link:first-child,
-    .question-link:hover {
+    .nav-tab:hover {
       background: #FFD166;
       transform: translateY(-1px);
     }
 
-    #panorama, #bloco-perguntas, #bloco-graficos, #bloco-segmentacao, #materiais {
-      scroll-margin-top: 20px;
+    .nav-tab svg {
+      width: 14px;
+      height: 14px;
+      stroke-width: 2.3;
     }
 
-    @media (max-width: 600px) {
-      .question-link, .resource-link { flex: 1 1 100%; justify-content: center; }
+    .nav-resources {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .resource-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 13px;
+      border: 1.5px solid var(--border-card);
+      border-radius: var(--radius-pill);
+      background: #FFFFFF;
+      color: var(--text-title);
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 700;
+      box-shadow: 2px 2px 0 var(--border-card);
+      transition: all 0.15s ease;
+    }
+
+    .resource-btn:hover {
+      background: var(--terracota-soft);
+      border-color: var(--terracota);
+      transform: translateY(-1px);
+    }
+
+    .resource-btn svg {
+      width: 14px;
+      height: 14px;
+      stroke-width: 2.2;
+      color: var(--terracota);
+    }
+
+    #panorama, #bloco-perguntas, #bloco-graficos, #bloco-segmentacao {
+      scroll-margin-top: 24px;
+    }
+
+    @media (max-width: 768px) {
+      .header-top-row, .header-nav-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .header-actions, .nav-tabs, .nav-resources {
+        justify-content: flex-start;
+      }
     }
 
     /* Panorama: estrutura em três colunas, com luzes suaves de fundo. */
@@ -723,38 +795,50 @@
 
   <div class="container">
     
-    <!-- Topo / Identidade -->
-    <header>
-      <div class="brand">
-        <div class="brand-icon" aria-label="Setor de alimentação"><i data-lucide="utensils"></i></div>
-        <div class="brand-title">
-          <h1>Abrasel Data Overview</h1>
-          <p>Radiografia Nacional do Setor de Alimentação Fora do Lar</p>
+    <!-- Topo Unificado (Identidade, Status, Navegação e Materiais) -->
+    <header class="unified-header">
+      <div class="header-top-row">
+        <div class="brand">
+          <div class="brand-icon" aria-label="Setor de alimentação"><i data-lucide="utensils"></i></div>
+          <div class="brand-title">
+            <h1>Abrasel Data Overview</h1>
+            <p>Radiografia Nacional do Setor de Alimentação Fora do Lar</p>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <div class="status-tag">
+            <span class="dot-live"></span>
+            Base RFB Oficial — 72,8M Registros
+          </div>
+          <a class="contact-btn" href="mailto:christiano.gonara@gmail.com" title="Enviar e-mail para Christiano Gonçalves">
+            <i data-lucide="mail"></i>
+            christiano.gonara@gmail.com
+          </a>
         </div>
       </div>
-      <div class="header-badge">
-        <span class="dot-live"></span>
-        Base RFB Oficial — 72,8M Registros Analisados
-      </div>
-      <div class="header-badge">
-        <i data-lucide="mail"></i>
-        christiano.gonara@gmail.com
+
+      <div class="header-nav-row">
+        <nav class="nav-tabs" aria-label="Navegação temática">
+          <a class="nav-tab" href="#panorama"><i data-lucide="sparkles"></i>Visão geral</a>
+          <a class="nav-tab" href="#bloco-perguntas"><i data-lucide="help-circle"></i>Perguntas-chave</a>
+          <a class="nav-tab" href="#bloco-graficos"><i data-lucide="bar-chart-3"></i>Gráficos & Tendências</a>
+          <a class="nav-tab" href="#bloco-segmentacao"><i data-lucide="map"></i>Estados & Atividades</a>
+        </nav>
+
+        <div class="nav-resources" aria-label="Acesso aos materiais técnicos">
+          <a class="resource-btn" href="https://github.com/christiano-gonara/teste-abrasel-dados/blob/main/notebooks/analise_abrasel.ipynb" target="_blank" title="Abrir notebook técnico no GitHub">
+            <i data-lucide="file-code-2"></i>Notebook
+          </a>
+          <a class="resource-btn" href="https://github.com/christiano-gonara/teste-abrasel-dados/releases/latest" target="_blank" title="Baixar base tratada em formato Parquet">
+            <i data-lucide="database"></i>Base Parquet
+          </a>
+          <a class="resource-btn" href="https://github.com/christiano-gonara/teste-abrasel-dados" target="_blank" title="Ver repositório completo no GitHub">
+            <i data-lucide="code-xml"></i>Repositório
+          </a>
+        </div>
       </div>
     </header>
-
-    <nav class="question-nav" aria-label="Navegação pelas perguntas">
-      <a class="question-link" href="#panorama"><i data-lucide="sparkles"></i>Bloco 1 • Visão geral</a>
-      <a class="question-link" href="#bloco-perguntas"><i data-lucide="help-circle"></i>Bloco 2 • Perguntas</a>
-      <a class="question-link" href="#bloco-graficos"><i data-lucide="bar-chart-3"></i>Bloco 3 • Gráficos</a>
-      <a class="question-link" href="#bloco-segmentacao"><i data-lucide="map"></i>Bloco 4 • Estados & Tipos</a>
-      <a class="question-link" href="#materiais"><i data-lucide="folder-open"></i>Materiais</a>
-    </nav>
-
-    <nav class="resource-nav" id="materiais" aria-label="Materiais da entrega">
-      <a class="resource-link" href="https://github.com/christiano-gonara/teste-abrasel-dados/blob/main/notebooks/analise_abrasel.ipynb" target="_blank"><i data-lucide="file-code-2"></i>Notebook técnico</a>
-      <a class="resource-link" href="https://github.com/christiano-gonara/teste-abrasel-dados/releases/latest" target="_blank"><i data-lucide="database"></i>Base completa (Parquet)</a>
-      <a class="resource-link" href="https://github.com/christiano-gonara/teste-abrasel-dados" target="_blank"><i data-lucide="github"></i>Repositório no GitHub</a>
-    </nav>
 
     <!-- Bloco 1: Contexto Geral -->
     <div class="section-divider">
@@ -1051,9 +1135,9 @@
         <strong>Teste Técnico Abrasel</strong> — Elaborado por Christiano Gonçalves • Dados tratados com DuckDB & Parquet
       </div>
       <div>
-        <a href="https://github.com/christiano-gonara/teste-abrasel-dados" target="_blank">Repositório</a> ·
+        <a href="https://github.com/christiano-gonara/teste-abrasel-dados" target="_blank">Repositório no GitHub</a> ·
         <a href="https://github.com/christiano-gonara/teste-abrasel-dados/blob/main/notebooks/analise_abrasel.ipynb" target="_blank">Notebook técnico</a> ·
-        <a href="https://github.com/christiano-gonara/teste-abrasel-dados/releases/latest" target="_blank">Base completa</a> →
+        <a href="https://github.com/christiano-gonara/teste-abrasel-dados/releases/latest" target="_blank">Base completa (Parquet)</a> →
       </div>
     </footer>
 

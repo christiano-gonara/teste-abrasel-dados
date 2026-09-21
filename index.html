@@ -140,16 +140,23 @@
 
     .header-actions {
       display: flex;
-      align-items: center;
-      flex-wrap: wrap;
+      flex-direction: column;
+      align-items: flex-end;
       gap: 10px;
     }
 
-    .author-badge {
+    .author-contact-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .author-badge, .contact-tag {
       display: inline-flex;
       align-items: center;
       gap: 7px;
-      background: var(--bg-warm-card);
+      background: #FFFFFF;
       border: 1.5px solid var(--border-card);
       padding: 6px 14px;
       border-radius: var(--radius-pill);
@@ -157,9 +164,14 @@
       font-weight: 700;
       color: var(--text-title);
       box-shadow: 2px 2px 0 var(--border-card);
+      user-select: all;
     }
 
-    .author-badge svg {
+    .author-badge:hover, .contact-tag:hover {
+      background: var(--bg-warm-card);
+    }
+
+    .author-badge svg, .contact-tag svg {
       width: 14px;
       height: 14px;
       stroke-width: 2.2;
@@ -185,28 +197,6 @@
       background-color: var(--oliva);
       border-radius: 50%;
       box-shadow: 0 0 0 3px rgba(78, 135, 82, 0.25);
-    }
-
-    /* Badge de contato informativo (sem link/sem affordance de clique) */
-    .contact-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      background: #FFFFFF;
-      border: 1.5px solid var(--border-card);
-      padding: 6px 14px;
-      border-radius: var(--radius-pill);
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--text-title);
-      box-shadow: 2px 2px 0 var(--border-card);
-      user-select: all;
-    }
-
-    .contact-tag svg {
-      width: 14px;
-      height: 14px;
-      stroke-width: 2.2;
     }
 
     /* Barra inferior de navegação e atalhos de materiais integrada */
@@ -799,13 +789,27 @@
       align-items: center;
       flex-wrap: wrap;
       gap: 16px;
-      padding: 18px 26px;
+      padding: 16px 24px;
       background: var(--card-bg);
       border: 2px solid var(--border-card);
       border-radius: var(--radius-xl);
       box-shadow: var(--shadow-brutal);
       font-size: 13px;
       color: var(--text-muted);
+    }
+
+    .footer-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .footer-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
     }
 
     footer a {
@@ -845,17 +849,19 @@
         </div>
 
         <div class="header-actions">
-          <div class="author-badge">
-            <i data-lucide="user"></i>
-            Christiano Gonçalves Araújo
-          </div>
           <div class="status-tag">
             <span class="dot-live"></span>
             Base RFB Oficial — 72,8M Registros
           </div>
-          <div class="contact-tag" title="E-mail de contato">
-            <i data-lucide="mail"></i>
-            christiano.gonara@gmail.com
+          <div class="author-contact-row">
+            <div class="author-badge" title="Autor do teste">
+              <i data-lucide="user"></i>
+              Christiano Gonçalves Araujo
+            </div>
+            <div class="contact-tag" title="E-mail de contato">
+              <i data-lucide="mail"></i>
+              christiano.gonara@gmail.com
+            </div>
           </div>
         </div>
       </div>
@@ -1173,10 +1179,10 @@
 
     <!-- Rodapé -->
     <footer>
-      <div>
-        <strong>Teste Técnico Abrasel</strong> — Elaborado por <strong>Christiano Gonçalves Araújo</strong> • Dados tratados com DuckDB & Parquet
+      <div class="footer-left">
+        <strong>Teste Técnico Abrasel</strong> • <strong>Christiano Gonçalves Araujo</strong> • <span>DuckDB & Parquet</span>
       </div>
-      <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
+      <div class="footer-right">
         <a href="https://github.com/christiano-gonara/teste-abrasel-dados" target="_blank"><i data-lucide="code-xml"></i>Repositório no GitHub</a>
         <span style="color: #D5C9BF;">•</span>
         <a href="https://github.com/christiano-gonara/teste-abrasel-dados/blob/main/notebooks/analise_abrasel.ipynb" target="_blank"><i data-lucide="file-code-2"></i>Notebook técnico</a>

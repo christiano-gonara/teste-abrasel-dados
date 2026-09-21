@@ -51,6 +51,10 @@
       --shadow-soft: 4px 4px 0 var(--text-title);
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -141,7 +145,26 @@
       gap: 10px;
     }
 
-    /* Distinção clara de Affordance: Badge de status é informativo (sem hover/click) */
+    .author-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--bg-warm-card);
+      border: 1.5px solid var(--border-card);
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-title);
+      box-shadow: 2px 2px 0 var(--border-card);
+    }
+
+    .author-badge svg {
+      width: 14px;
+      height: 14px;
+      stroke-width: 2.2;
+      color: var(--terracota);
+    }
     .status-tag {
       display: inline-flex;
       align-items: center;
@@ -164,8 +187,8 @@
       box-shadow: 0 0 0 3px rgba(78, 135, 82, 0.25);
     }
 
-    /* Botão de contato com affordance nítida de clique */
-    .contact-btn {
+    /* Badge de contato informativo (sem link/sem affordance de clique) */
+    .contact-tag {
       display: inline-flex;
       align-items: center;
       gap: 7px;
@@ -176,17 +199,11 @@
       font-size: 12px;
       font-weight: 700;
       color: var(--text-title);
-      text-decoration: none;
       box-shadow: 2px 2px 0 var(--border-card);
-      transition: all 0.15s ease;
+      user-select: all;
     }
 
-    .contact-btn:hover {
-      background: #FFD166;
-      transform: translateY(-1px);
-    }
-
-    .contact-btn svg {
+    .contact-tag svg {
       width: 14px;
       height: 14px;
       stroke-width: 2.2;
@@ -781,11 +798,11 @@
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      gap: 12px;
-      padding: 20px 24px;
+      gap: 16px;
+      padding: 18px 26px;
       background: var(--card-bg);
       border: 2px solid var(--border-card);
-      border-radius: var(--radius-lg);
+      border-radius: var(--radius-xl);
       box-shadow: var(--shadow-brutal);
       font-size: 13px;
       color: var(--text-muted);
@@ -828,14 +845,18 @@
         </div>
 
         <div class="header-actions">
+          <div class="author-badge">
+            <i data-lucide="user"></i>
+            Christiano Gonçalves Araújo
+          </div>
           <div class="status-tag">
             <span class="dot-live"></span>
             Base RFB Oficial — 72,8M Registros
           </div>
-          <a class="contact-btn" href="mailto:christiano.gonara@gmail.com" title="Enviar e-mail para Christiano Gonçalves">
+          <div class="contact-tag" title="E-mail de contato">
             <i data-lucide="mail"></i>
             christiano.gonara@gmail.com
-          </a>
+          </div>
         </div>
       </div>
 
@@ -871,9 +892,9 @@
       <div class="hero-top">
         <h2>Panorama do Setor no Brasil</h2>
         <div class="hero-pills">
-          <span class="hero-pill"><i data-lucide="chart-no-axes-combined"></i>Base Nacional Completa</span>
-          <span class="hero-pill"><i data-lucide="link-2"></i>Dados unificados</span>
-          <span class="hero-pill"><i data-lucide="utensils"></i>6 CNAEs de Alimentação</span>
+          <span class="hero-pill"><i data-lucide="database-zap"></i>Base Nacional Completa</span>
+          <span class="hero-pill"><i data-lucide="git-merge"></i>Dados unificados</span>
+          <span class="hero-pill"><i data-lucide="store"></i>6 CNAEs de Alimentação</span>
         </div>
       </div>
 
@@ -1153,7 +1174,7 @@
     <!-- Rodapé -->
     <footer>
       <div>
-        <strong>Teste Técnico Abrasel</strong> — Elaborado por Christiano Gonçalves • Dados tratados com DuckDB & Parquet
+        <strong>Teste Técnico Abrasel</strong> — Elaborado por <strong>Christiano Gonçalves Araújo</strong> • Dados tratados com DuckDB & Parquet
       </div>
       <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
         <a href="https://github.com/christiano-gonara/teste-abrasel-dados" target="_blank"><i data-lucide="code-xml"></i>Repositório no GitHub</a>

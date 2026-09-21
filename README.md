@@ -8,14 +8,12 @@ Análise nacional do setor de bares, restaurantes e alimentação fora do lar, u
 
 <table>
   <tr>
-    <td width="33.33%" valign="top"><img src="assets/01-panorama.png" alt="Panorama nacional do setor"><br><sub><b>01 · Panorama nacional</b><br>Dimensão e recorte da análise.</sub></td>
-    <td width="33.33%" valign="top"><img src="assets/02-empresas-ativas.png" alt="Empresas ativas"><br><sub><b>02 · Empresas ativas</b><br>Leitura da primeira pergunta.</sub></td>
-    <td width="33.33%" valign="top"><img src="assets/03-aberturas.png" alt="Evolução das aberturas"><br><sub><b>03 · Aberturas em cinco anos</b><br>Evolução de 2021 a 2025.</sub></td>
+    <td width="50%" valign="top"><img src="assets/01-panorama.png" alt="Bloco 1 · Panorama Geral"><br><sub><b>01 · Panorama nacional</b><br>Identidade, cabeçalho e métricas iniciais.</sub></td>
+    <td width="50%" valign="top"><img src="assets/02-perguntas.png" alt="Bloco 2 · Perguntas"><br><sub><b>02 · Perguntas-chave</b><br>Cards com as respostas obrigatórias do teste.</sub></td>
   </tr>
   <tr>
-    <td width="33.33%" valign="top"><img src="assets/04-porte.png" alt="Distribuição por porte"><br><sub><b>04 · Porte predominante</b><br>MEI, ME, EPP e demais.</sub></td>
-    <td width="33.33%" valign="top"><img src="assets/05-estados.png" alt="Concentração regional"><br><sub><b>05 · Concentração regional</b><br>Os cinco estados com mais empresas.</sub></td>
-    <td width="33.33%" valign="top"><img src="assets/06-negocios.png" alt="Principais tipos de negócio"><br><sub><b>06 · Tipos de negócio</b><br>Atividades mais representativas.</sub></td>
+    <td width="50%" valign="top"><img src="assets/03-graficos.png" alt="Bloco 3 · Gráficos e Séries"><br><sub><b>03 · Gráficos & tendências</b><br>Série histórica de aberturas e rosca por porte.</sub></td>
+    <td width="50%" valign="top"><img src="assets/04-estados-atividades.png" alt="Bloco 4 · Estados e Atividades"><br><sub><b>04 · Estados & atividades</b><br>Concentração regional e principais tipos de negócio.</sub></td>
   </tr>
 </table>
 

@@ -364,15 +364,14 @@
     }
 
     .hero-pill {
-      background: rgba(255, 255, 255, 0.82);
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(234, 223, 215, 0.9);
-      padding: 7px 12px;
+      background: var(--bg-warm-card);
+      border: 1.5px solid #D5C9BF;
+      padding: 6px 14px;
       border-radius: var(--radius-pill);
       font-size: 12px;
-      font-weight: 700;
-      color: var(--text-title);
-      box-shadow: 0 3px 9px rgba(78, 55, 40, 0.04);
+      font-weight: 600;
+      color: var(--text-body);
+      box-shadow: none;
     }
 
     /* Os três achados ficam na mesma linha, sem uma terceira coluna solta. */
@@ -427,21 +426,22 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 6px 12px;
-      font-size: 11.5px;
-      font-weight: 700;
-      color: var(--text-title);
-      background: #FFFFFF;
-      border: 1.5px solid var(--border-card);
+      background: var(--bg-warm-card);
+      border: 1.5px solid #D5C9BF;
+      padding: 6px 14px;
       border-radius: var(--radius-pill);
-      box-shadow: 2px 2px 0 var(--border-card);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-body);
+      box-shadow: none;
+      user-select: none;
     }
 
     .hero-pill svg {
       width: 14px;
       height: 14px;
       stroke-width: 2.2;
-      color: var(--terracota);
+      color: var(--text-muted);
     }
 
     .hero-bullets {

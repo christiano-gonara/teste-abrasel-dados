@@ -169,8 +169,44 @@
       color: var(--terracota);
     }
 
+    .question-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 13px;
+      border: 2px solid var(--text-title);
+      border-radius: var(--radius-lg);
+      background: var(--card-bg);
+      box-shadow: 3px 3px 0 var(--text-title);
+    }
+
+    .question-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 10px 15px;
+      border: 1.5px solid var(--text-title);
+      border-radius: var(--radius-pill);
+      background: var(--bg-warm-card);
+      color: var(--text-title);
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 800;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .question-link:first-child,
+    .question-link:hover {
+      background: #FFD166;
+      transform: translateY(-1px);
+    }
+
+    #panorama, #pergunta-1, #pergunta-2, #pergunta-3, #materiais {
+      scroll-margin-top: 20px;
+    }
+
     @media (max-width: 600px) {
-      .resource-link { flex: 1 1 100%; justify-content: center; }
+      .question-link, .resource-link { flex: 1 1 100%; justify-content: center; }
     }
 
     /* Panorama: estrutura em três colunas, com luzes suaves de fundo. */
@@ -646,16 +682,28 @@
         <span class="dot-live"></span>
         Base RFB Oficial — 72,8M Registros Analisados
       </div>
+      <div class="header-badge">
+        <i data-lucide="mail"></i>
+        christiano.gonara@gmail.com
+      </div>
     </header>
 
-    <nav class="resource-nav" aria-label="Materiais da entrega">
+    <nav class="question-nav" aria-label="Navegação pelas perguntas">
+      <a class="question-link" href="#panorama"><i data-lucide="sparkles"></i>Visão geral</a>
+      <a class="question-link" href="#pergunta-1"><i data-lucide="circle-1"></i>Empresas ativas</a>
+      <a class="question-link" href="#pergunta-2"><i data-lucide="circle-2"></i>Aberturas</a>
+      <a class="question-link" href="#pergunta-3"><i data-lucide="circle-3"></i>Porte predominante</a>
+      <a class="question-link" href="#materiais"><i data-lucide="folder-open"></i>Materiais</a>
+    </nav>
+
+    <nav class="resource-nav" id="materiais" aria-label="Materiais da entrega">
       <a class="resource-link" href="https://github.com/christiano-gonara/teste-abrasel-dados/blob/main/notebooks/analise_abrasel.ipynb" target="_blank"><i data-lucide="file-code-2"></i>Notebook técnico</a>
       <a class="resource-link" href="https://github.com/christiano-gonara/teste-abrasel-dados/releases/latest" target="_blank"><i data-lucide="database"></i>Base completa</a>
       <a class="resource-link" href="https://github.com/christiano-gonara/teste-abrasel-dados" target="_blank"><i data-lucide="github"></i>Repositório</a>
     </nav>
 
     <!-- Resumo executivo com três achados diretos. -->
-    <section class="hero-warm">
+    <section class="hero-warm" id="panorama">
       <div class="hero-top">
         <h2>Panorama do Setor no Brasil</h2>
         <div class="hero-pills">
@@ -685,7 +733,7 @@
     <section class="kpi-grid">
 
       <!-- Pergunta 1 -->
-      <div class="kpi-card">
+      <div class="kpi-card" id="pergunta-1">
         <div class="kpi-top">
           <span class="kpi-label">Pergunta 1 • Ativas hoje</span>
           <span class="pill-badge pill-terracota">97,6% Matriz</span>
@@ -699,7 +747,7 @@
       </div>
 
       <!-- Pergunta 2 -->
-      <div class="kpi-card">
+      <div class="kpi-card" id="pergunta-2">
         <div class="kpi-top">
           <span class="kpi-label">Pergunta 2 • Últimos 5 anos</span>
           <span class="pill-badge pill-oliva">Pico em 2021</span>
@@ -712,7 +760,7 @@
       </div>
 
       <!-- Pergunta 3 -->
-      <div class="kpi-card">
+      <div class="kpi-card" id="pergunta-3">
         <div class="kpi-top">
           <span class="kpi-label">Pergunta 3 • Porte predominante</span>
           <span class="pill-badge pill-tangerina">63,1% do Setor</span>

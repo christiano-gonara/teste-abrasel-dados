@@ -40,14 +40,15 @@
       --azul-soft: #EBF3F7;
 
       --track-bg: #EAE2DA;       /* Trilho das barras em bege macio */
-      --border-card: #EADFD7;
+      --border-card: #2D231E;    /* Borda escura estilo neo-brutalist / lista IHC */
 
-      --radius-xl: 28px;
-      --radius-lg: 20px;
+      --radius-xl: 24px;
+      --radius-lg: 18px;
       --radius-md: 14px;
       --radius-pill: 9999px;
 
-      --shadow-soft: 0 8px 30px rgba(78, 55, 40, 0.04), 0 2px 8px rgba(78, 55, 40, 0.02);
+      --shadow-brutal: 4px 4px 0 var(--text-title);
+      --shadow-soft: 4px 4px 0 var(--text-title);
     }
 
     * {
@@ -80,6 +81,11 @@
       align-items: center;
       flex-wrap: wrap;
       gap: 16px;
+      padding: 24px 28px;
+      background: var(--card-bg);
+      border: 2px solid var(--border-card);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-brutal);
     }
 
     .brand {
@@ -118,14 +124,13 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: var(--card-bg);
-      border: 1px solid var(--border-card);
+      background: var(--bg-warm-card);
+      border: 1.5px solid var(--border-card);
       padding: 8px 18px;
       border-radius: var(--radius-pill);
       font-size: 13px;
       font-weight: 600;
       color: var(--text-body);
-      box-shadow: var(--shadow-soft);
     }
 
     .dot-live {
@@ -146,21 +151,21 @@
       display: inline-flex;
       align-items: center;
       gap: 7px;
-      padding: 10px 15px;
-      border: 1px solid var(--border-card);
+      padding: 10px 16px;
+      border: 1.5px solid var(--border-card);
       border-radius: var(--radius-pill);
       background: var(--card-bg);
-      color: var(--text-body);
+      color: var(--text-title);
       text-decoration: none;
       font-size: 12px;
       font-weight: 700;
-      box-shadow: var(--shadow-soft);
-      transition: transform 0.2s ease, border-color 0.2s ease;
+      box-shadow: 2px 2px 0 var(--border-card);
+      transition: transform 0.2s ease, background 0.2s ease;
     }
 
     .resource-link:hover {
       transform: translateY(-1px);
-      border-color: var(--terracota);
+      background: var(--bg-warm-card);
     }
 
     .resource-link svg {
@@ -201,7 +206,7 @@
       transform: translateY(-1px);
     }
 
-    #panorama, #pergunta-1, #pergunta-2, #pergunta-3, #materiais {
+    #panorama, #bloco-perguntas, #bloco-graficos, #bloco-segmentacao, #materiais {
       scroll-margin-top: 20px;
     }
 
@@ -214,13 +219,13 @@
       isolation: isolate;
       overflow: hidden;
       background: linear-gradient(115deg, #FFF9F2 0%, #FAF3EC 52%, #F8F0E7 100%);
-      border: 1px solid var(--border-card);
+      border: 2px solid var(--border-card);
       border-radius: var(--radius-xl);
       padding: 32px 36px;
       display: flex;
       flex-direction: column;
       gap: 22px;
-      box-shadow: var(--shadow-soft);
+      box-shadow: var(--shadow-brutal);
       position: relative;
     }
 
@@ -395,9 +400,9 @@
     .kpi-card {
       background: var(--card-bg);
       border-radius: var(--radius-xl);
-      border: 1px solid var(--border-card);
+      border: 2px solid var(--border-card);
       padding: 24px 26px;
-      box-shadow: var(--shadow-soft);
+      box-shadow: var(--shadow-brutal);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -406,7 +411,7 @@
     }
 
     .kpi-card:hover {
-      transform: translateY(-3px);
+      transform: translateY(-2px);
     }
 
     .kpi-top {
@@ -476,9 +481,9 @@
     .chart-card {
       background: var(--card-bg);
       border-radius: var(--radius-xl);
-      border: 1px solid var(--border-card);
+      border: 2px solid var(--border-card);
       padding: 28px;
-      box-shadow: var(--shadow-soft);
+      box-shadow: var(--shadow-brutal);
       display: flex;
       flex-direction: column;
       gap: 18px;
@@ -546,6 +551,7 @@
       justify-content: space-between;
       align-items: center;
       background: var(--bg-warm-card);
+      border: 1.5px solid var(--border-card);
       padding: 11px 14px;
       border-radius: var(--radius-md);
       font-size: 13.5px;
@@ -606,15 +612,19 @@
       padding: 18px 16px;
       font-size: 13.5px;
       vertical-align: middle;
+      border-top: 1.5px solid var(--border-card);
+      border-bottom: 1.5px solid var(--border-card);
     }
 
     .custom-table td:first-child {
+      border-left: 1.5px solid var(--border-card);
       border-radius: 14px 0 0 14px;
       font-weight: 700;
       color: var(--text-title);
     }
 
     .custom-table td:last-child {
+      border-right: 1.5px solid var(--border-card);
       border-radius: 0 14px 14px 0;
       text-align: right;
       font-family: 'Outfit', sans-serif;
@@ -641,6 +651,47 @@
       box-shadow: 0 2px 5px rgba(78, 55, 40, 0.14);
     }
 
+    /* Section Dividers estilo lista IHC */
+    .section-divider {
+      display: flex;
+      align-items: center;
+      margin: 12px 0 4px 0;
+      position: relative;
+    }
+
+    .section-divider::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 50%;
+      border-top: 2px dashed #C8BDB2;
+      z-index: 1;
+    }
+
+    .section-badge {
+      position: relative;
+      z-index: 2;
+      background: var(--bg-warm-card);
+      border: 2px solid var(--border-card);
+      padding: 7px 18px;
+      border-radius: var(--radius-pill);
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--text-title);
+      box-shadow: 2px 2px 0 var(--border-card);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 auto;
+    }
+
+    .section-badge svg {
+      width: 16px;
+      height: 16px;
+      color: var(--terracota);
+    }
+
     /* Footer */
     footer {
       display: flex;
@@ -648,8 +699,11 @@
       align-items: center;
       flex-wrap: wrap;
       gap: 12px;
-      padding-top: 20px;
-      border-top: 1px solid var(--border-card);
+      padding: 20px 24px;
+      background: var(--card-bg);
+      border: 2px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-brutal);
       font-size: 13px;
       color: var(--text-muted);
     }
@@ -689,18 +743,23 @@
     </header>
 
     <nav class="question-nav" aria-label="Navegação pelas perguntas">
-      <a class="question-link" href="#panorama"><i data-lucide="sparkles"></i>Visão geral</a>
-      <a class="question-link" href="#pergunta-1"><i data-lucide="circle-1"></i>Empresas ativas</a>
-      <a class="question-link" href="#pergunta-2"><i data-lucide="circle-2"></i>Aberturas</a>
-      <a class="question-link" href="#pergunta-3"><i data-lucide="circle-3"></i>Porte predominante</a>
+      <a class="question-link" href="#panorama"><i data-lucide="sparkles"></i>Bloco 1 • Visão geral</a>
+      <a class="question-link" href="#bloco-perguntas"><i data-lucide="help-circle"></i>Bloco 2 • Perguntas</a>
+      <a class="question-link" href="#bloco-graficos"><i data-lucide="bar-chart-3"></i>Bloco 3 • Gráficos</a>
+      <a class="question-link" href="#bloco-segmentacao"><i data-lucide="map"></i>Bloco 4 • Estados & Tipos</a>
       <a class="question-link" href="#materiais"><i data-lucide="folder-open"></i>Materiais</a>
     </nav>
 
     <nav class="resource-nav" id="materiais" aria-label="Materiais da entrega">
       <a class="resource-link" href="https://github.com/christiano-gonara/teste-abrasel-dados/blob/main/notebooks/analise_abrasel.ipynb" target="_blank"><i data-lucide="file-code-2"></i>Notebook técnico</a>
-      <a class="resource-link" href="https://github.com/christiano-gonara/teste-abrasel-dados/releases/latest" target="_blank"><i data-lucide="database"></i>Base completa</a>
-      <a class="resource-link" href="https://github.com/christiano-gonara/teste-abrasel-dados" target="_blank"><i data-lucide="github"></i>Repositório</a>
+      <a class="resource-link" href="https://github.com/christiano-gonara/teste-abrasel-dados/releases/latest" target="_blank"><i data-lucide="database"></i>Base completa (Parquet)</a>
+      <a class="resource-link" href="https://github.com/christiano-gonara/teste-abrasel-dados" target="_blank"><i data-lucide="github"></i>Repositório no GitHub</a>
     </nav>
+
+    <!-- Bloco 1: Contexto Geral -->
+    <div class="section-divider">
+      <span class="section-badge"><i data-lucide="layers"></i>Bloco 1 • Panorama Geral e Métricas</span>
+    </div>
 
     <!-- Resumo executivo com três achados diretos. -->
     <section class="hero-warm" id="panorama">
@@ -728,6 +787,11 @@
         </div>
       </div>
     </section>
+
+    <!-- Bloco 2: Perguntas Obrigatórias -->
+    <div class="section-divider" id="bloco-perguntas">
+      <span class="section-badge"><i data-lucide="help-circle"></i>Bloco 2 • Respostas às Perguntas do Teste</span>
+    </div>
 
     <!-- Cards Principais (Respostas do Teste) -->
     <section class="kpi-grid">
@@ -786,6 +850,11 @@
       </div>
 
     </section>
+
+    <!-- Bloco 3: Visualizações e Séries Temporais -->
+    <div class="section-divider" id="bloco-graficos">
+      <span class="section-badge"><i data-lucide="bar-chart-3"></i>Bloco 3 • Análise Gráfica e Séries</span>
+    </div>
 
     <!-- Gráficos Principais -->
     <section class="dashboard-grid">
@@ -851,6 +920,11 @@
       </div>
 
     </section>
+
+    <!-- Bloco 4: Segmentação Regional e Atividades -->
+    <div class="section-divider" id="bloco-segmentacao">
+      <span class="section-badge"><i data-lucide="map"></i>Bloco 4 • Distribuição por Estado e Atividade</span>
+    </div>
 
     <!-- Tabelas Visuais: Barras mais grossas e rótulos claros -->
     <section class="bottom-grid">
